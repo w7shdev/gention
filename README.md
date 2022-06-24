@@ -1,10 +1,7 @@
-# Gention 
+# Gention
 
-Generate you github action on the fly. 
+Generate you github action on the fly.
 
+## Note
 
-## Note 
-
-This is expermintal cli-tool 
-
-
+This is expermintal cli-tool
