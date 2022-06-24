@@ -31,7 +31,7 @@ export class S3ActionResolver {
     json.on.branches.push(this.options?.branch);
     json.jobs.deploy.steps[1]["with"]["aws-region"] = this.options?.region;
 
-    json.jobs.deploy.steps[json.jobs.deploy.steps.length - 1] =
+    json.jobs.deploy.steps[json.jobs.deploy.steps.length - 1].run =
       `aws s3 sync ./${this.options?.output} s3://${this.options?.bucket}\n`;
 
     return json;
