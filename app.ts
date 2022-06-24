@@ -29,7 +29,7 @@ if (flags.aws) {
 
   const json = tempalte.useOptions(parsed);
 
-  console.log(`\nconverting it back to YAML\n`);
+  console.log(`%c\nGenerated github action\n`, "color:green");
   console.log(tempalte.toYaml(JSON.stringify(json)));
 
 } else {
