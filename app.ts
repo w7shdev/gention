@@ -24,11 +24,7 @@ if (flags.aws) {
   const tempalte = await Resolver.getSchema();
 
   const parsed = JSON.parse(tempalte.toJson());
-  console.log(parsed)
-  parsed.name = "hello world";
-  console.log(parsed.name);
 
-    console.log(parsed.jobs.deploy.steps)
   console.log(` converting it back to YAML`);
 
 } else {
