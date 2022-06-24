@@ -23,9 +23,14 @@ if (flags.aws) {
 
   const tempalte = await Resolver.getSchema();
 
+  tempalte.setOptions();
+
   const parsed = JSON.parse(tempalte.toJson());
 
-  console.log(` converting it back to YAML`);
+  const json = tempalte.useOptions(parsed);
+
+  console.log(`\nconverting it back to YAML\n`);
+  console.log(tempalte.toYaml(JSON.stringify(json)));
 
 } else {
   console.log(
