@@ -23,8 +23,8 @@ export class S3ActionResolver implements IResolver {
 
   // deno-lint-ignore no-explicit-any
   public useOptions(json: any): any {
-    json.on.branches = [];
-    json.on.branches.push(this.options?.branch);
+    json.on.push.branches = [];
+    json.on.push.branches.push(this.options?.branch);
     json.jobs.deploy.steps[1]["with"]["aws-region"] = this.options?.region;
 
     json.jobs.deploy.steps[json.jobs.deploy.steps.length - 1].run =
