@@ -1,6 +1,4 @@
-import { JSONtoYAML, YAMLtoJSON } from "https://deno.land/x/y2j@v2.0.0/mod.ts";
-import { GetGithubActionSchema } from "../utils.ts";
-
+import { IResolver } from "../Resolver.ts";
 interface AWS_S3 {
   branch: string | null;
   region: string | null;
@@ -8,7 +6,7 @@ interface AWS_S3 {
   bucket: string | null;
 }
 
-export class S3ActionResolver {
+export class S3ActionResolver implements IResolver {
   private options: AWS_S3 = {
     branch: "dev",
     bucket: "dev-fe",
@@ -16,7 +14,6 @@ export class S3ActionResolver {
     region: "oman-21a",
   };
 
-  private _yamlSchema: string | undefined;
 
   public setOptions() {
     this.options.branch = prompt("Target branch for the action", "development");
@@ -37,24 +34,4 @@ export class S3ActionResolver {
     return json;
   }
 
-  public async getSchema(): Promise<this> {
-    this._yamlSchema = await GetGithubActionSchema("aws-s3");
-    return this;
-  }
-
-  public toJson(): string {
-    if (this._yamlSchema == undefined) {
-      throw Error("getSchema need to be invoked");
-    }
-
-    return YAMLtoJSON(this._yamlSchema);
-  }
-
-  public toYaml(json: string): string {
-    try {
-      return JSONtoYAML(json);
-    } catch (e) {
-      throw e;
-    }
-  }
 }
