@@ -12,18 +12,23 @@ export class Resolver {
   resolver: IResolver;
 
   private _yamlSchema: string | undefined;
+  private _json: string  | undefined;
 
   public constructor(_resolver: IResolver) {
     this.resolver = _resolver;
   }
 
-  public run(): void {
+  public async run(): Promise<void> {
+    await this.getSchema();
     this.resolver.setOptions();
+
+    const json = JSON.parse(this.toJson());
+    this._json = this.resolver.useOptions(json);
+    
   }
 
-  public async getSchema(): Promise<this> {
+  public async getSchema(): Promise<void> {
     this._yamlSchema = await GetGithubActionSchema("aws-s3");
-    return this;
   }
 
   public toJson(): string {
@@ -34,9 +39,9 @@ export class Resolver {
     return YAMLtoJSON(this._yamlSchema);
   }
     
-  public toYaml(json: string): string {
+  public toYaml(): string {
     try {
-      return JSONtoYAML(json);
+      return JSONtoYAML(JSON.stringify(this._json));
     } catch (e) {
       throw e;
     }
