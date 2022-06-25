@@ -6,7 +6,7 @@ Generate you github action on the fly.
 
 ## Requirement 
 
-- [Deno](deno.land)
+- [Deno](https://deno.land)
 
 ## Note
 
