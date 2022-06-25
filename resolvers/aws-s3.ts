@@ -14,7 +14,6 @@ export class S3ActionResolver implements IResolver {
     region: "oman-21a",
   };
 
-
   public setOptions() {
     this.options.branch = prompt("Target branch for the action", "development");
     this.options.region = prompt("S3 region", "oman-12-a");
@@ -33,5 +32,4 @@ export class S3ActionResolver implements IResolver {
 
     return json;
   }
-
 }

@@ -1,4 +1,4 @@
-import { YAMLtoJSON, JSONtoYAML } from "https://deno.land/x/y2j@v2.0.0/mod.ts";
+import { JSONtoYAML, YAMLtoJSON } from "https://deno.land/x/y2j@v2.0.0/mod.ts";
 import { GetGithubActionSchema } from "./utils.ts";
 
 export interface IResolver {
@@ -8,11 +8,10 @@ export interface IResolver {
 }
 
 export class Resolver {
-
   resolver: IResolver;
 
   private _yamlSchema: string | undefined;
-  private _json: string  | undefined;
+  private _json: string | undefined;
 
   public constructor(_resolver: IResolver) {
     this.resolver = _resolver;
@@ -24,7 +23,6 @@ export class Resolver {
 
     const json = JSON.parse(this.toJson());
     this._json = this.resolver.useOptions(json);
-    
   }
 
   public async getSchema(): Promise<void> {
@@ -38,7 +36,7 @@ export class Resolver {
 
     return YAMLtoJSON(this._yamlSchema);
   }
-    
+
   public toYaml(): string {
     try {
       return JSONtoYAML(JSON.stringify(this._json));

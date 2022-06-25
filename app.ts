@@ -19,11 +19,10 @@ if (flags.aws) {
 
   console.log("%cPreparing S3 automation deployment workflow", "color:green");
 
-    const resolver = new Resolver(new S3ActionResolver());
-    await resolver.run();
+  const resolver = new Resolver(new S3ActionResolver());
+  await resolver.run();
   console.log(`%c\nGenerated github action\n`, "color:green");
   console.log(resolver.toYaml());
-
 } else {
   console.log(
     "%cTo run this tool add the flags  --aws --s3",
