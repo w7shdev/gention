@@ -11,3 +11,10 @@ Generate you github action on the fly.
 ## Note
 
 This is expermintal cli-tool
+
+
+## running 
+
+```sh
+deno run -A app.ts --aws --s3
+```
