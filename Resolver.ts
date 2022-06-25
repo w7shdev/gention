@@ -5,6 +5,7 @@ export interface IResolver {
   setOptions(): void;
   // deno-lint-ignore no-explicit-any
   useOptions(json: any): any;
+  getSchema(): Promise<string>;
 }
 
 export class Resolver {
@@ -26,7 +27,7 @@ export class Resolver {
   }
 
   public async getSchema(): Promise<void> {
-    this._yamlSchema = await GetGithubActionSchema("aws-s3");
+    this._yamlSchema = await this.resolver.getSchema();
   }
 
   public toJson(): string {
