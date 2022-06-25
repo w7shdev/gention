@@ -1,6 +1,6 @@
 import { Args, parse } from "https://deno.land/std@0.119.0/flags/mod.ts";
 import { S3ActionResolver } from "./resolvers/aws-s3.ts";
-
+import { Resolver } from "./Resolver.ts";
 console.log(`
 Automation demo to generate gitub \n\raction with stright farward usage
     `);
@@ -19,19 +19,10 @@ if (flags.aws) {
 
   console.log("%cPreparing S3 automation deployment workflow", "color:green");
 
-  const Resolver = new S3ActionResolver();
-
-  const tempalte = await Resolver.getSchema();
-
-  tempalte.setOptions();
-
-  const parsed = JSON.parse(tempalte.toJson());
-
-  const json = tempalte.useOptions(parsed);
-
+  const resolver = new Resolver(new S3ActionResolver());
+  await resolver.run();
   console.log(`%c\nGenerated github action\n`, "color:green");
-  console.log(tempalte.toYaml(JSON.stringify(json)));
-
+  console.log(resolver.toYaml());
 } else {
   console.log(
     "%cTo run this tool add the flags  --aws --s3",
