@@ -1,4 +1,5 @@
 import { IResolver } from "../Resolver.ts";
+import { GetGithubActionSchema } from "../utils.ts";
 interface AWS_S3 {
   branch: string | null;
   region: string | null;
@@ -32,4 +33,9 @@ export class S3ActionResolver implements IResolver {
 
     return json;
   }
+
+  async getSchema(): Promise<string> {
+    return await GetGithubActionSchema("aws-s3");
+  }
+  
 }
