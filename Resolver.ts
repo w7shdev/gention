@@ -1,5 +1,4 @@
-import { JSONtoYAML, YAMLtoJSON } from "https://deno.land/x/y2j@v2.0.0/mod.ts";
-import { GetGithubActionSchema } from "./utils.ts";
+import { JSONtoYAML , YAMLtoJSON} from "./dept.ts"
 
 export interface IResolver {
   setOptions(): void;
