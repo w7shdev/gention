@@ -18,8 +18,8 @@ This is expermintal cli-tool
 deno run -A app.ts --aws --s3
 ```
 
-## Running test 
+## Running test
 
-```sh 
+```sh
 Deno test --allow-all
 ```
