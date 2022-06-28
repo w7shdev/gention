@@ -4,7 +4,7 @@ Generate you github action on the fly.
 
 ![Gention](./gention.gif)
 
-## Requirement 
+## Requirement
 
 - [Deno](https://deno.land)
 
@@ -12,8 +12,7 @@ Generate you github action on the fly.
 
 This is expermintal cli-tool
 
-
-## running 
+## Running
 
 ```sh
 deno run -A app.ts --aws --s3

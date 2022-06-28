@@ -37,5 +37,4 @@ export class S3ActionResolver implements IResolver {
   async getSchema(): Promise<string> {
     return await GetGithubActionSchema("aws-s3");
   }
-  
 }
