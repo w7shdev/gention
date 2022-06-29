@@ -26,4 +26,4 @@ jobs:
         run: npm run build --if-present
       - name: Copy files to the test website with the AWS CLI
         run: |
-          aws s3 sync ./dist/s3-welcome s3://rmd-dashboard
+          aws s3 sync ./dist/build-name s3://bucket-name
