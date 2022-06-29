@@ -17,3 +17,9 @@ This is expermintal cli-tool
 ```sh
 deno run -A app.ts --aws --s3
 ```
+
+## Running test
+
+```sh
+Deno test --allow-all
+```

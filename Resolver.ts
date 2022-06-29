@@ -1,4 +1,4 @@
-import { JSONtoYAML , YAMLtoJSON} from "./dept.ts"
+import { JSONtoYAML, YAMLtoJSON } from "./dept.ts";
 
 export interface IResolver {
   setOptions(): void;

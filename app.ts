@@ -1,4 +1,4 @@
-import {Args , parse} from "./dept.ts"
+import { Args, parse } from "./dept.ts";
 import { S3ActionResolver } from "./resolvers/aws-s3.ts";
 import { Resolver } from "./Resolver.ts";
 
