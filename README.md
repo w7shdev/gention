@@ -23,3 +23,7 @@ deno run -A app.ts --aws --s3
 ```sh
 Deno test --allow-all
 ```
+
+## License 
+
+[MIT](./LICENSE)
